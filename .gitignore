@@ -1,0 +1,6 @@
+node_modules/
+frontend/dist/
+*.exe
+.env
+.env.local
+.DS_Store

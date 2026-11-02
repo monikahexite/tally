@@ -1,0 +1,21 @@
+# Render Blueprint: New > Blueprint > pick this repo.
+# MongoDB comes from MongoDB Atlas and Redis from Upstash (both have free tiers);
+# paste their connection strings when Render asks for the secret values.
+services:
+  - type: web
+    name: tally-live-polls
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /api/healthz
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB
+        value: livepoll
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
